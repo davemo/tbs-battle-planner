@@ -1,3 +1,55 @@
-.stuff {
-  color: blue;
+html, body {
+  margin: 0;
+  padding: 0;
 }
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000000 url(../img/tbs.background.jpg) no-repeat 50% 0%
+}
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#menu {
+  height: 100px;
+  background: blue;
+}
+
+#planner {
+  height: 600px;
+  background: red;
+}
+
+.loadout {
+  overflow: hidden;
+  .character {
+    width: 150px;
+    height: 180px;
+    float: left;
+    margin-right: 10px;
+    .title {
+      height: 30px;
+      background: orange;
+    }
+    .portrait {
+      background: green;
+      height: 150px;
+    }
+    &:first-child {
+      margin-left: 5px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+
