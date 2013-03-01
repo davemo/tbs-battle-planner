@@ -15,8 +15,8 @@
     </div>
 
     <div id="loadout">
-      <div class="inner">
-        <ul id="selected-characters" class="wrapper"></ul>
+      <div class="wrapper">
+        <ul id="selected-characters"></ul>
       </div>
     </div>
 

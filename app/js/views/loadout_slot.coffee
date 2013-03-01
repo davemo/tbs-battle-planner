@@ -7,8 +7,9 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "mouseout"      : "hideOverlay"
     "click .remove" : "removeFromLoadout"
 
-
   removeFromLoadout: ->
+    debugger
+    @model.collection.resetEditModeOnAllUnits()
     @model.clear()
     @model.set(new tbs.models.Unit().attributes)
     @model.set("editMode", "choosing")

@@ -3,7 +3,6 @@
   <div class="portrait {{ name }}"></div>
   <ul class="stats"></ul>
   <div class="controls">
-    <button>Confirm</button>
-    <button>Cancel</button>
+    <button>Reset</button>
   </div>
 </div>
