@@ -30,7 +30,6 @@ body {
 
 #planner {
   height: 600px;
-  background: red;
 }
 
 .loadout {
@@ -41,11 +40,11 @@ body {
     float: left;
     margin-right: 10px;
     .title {
+      font-size: 1.4em;
       height: 30px;
-      background: orange;
+      color: white;
     }
     .portrait {
-      background: green;
       height: 150px;
     }
     &:first-child {
@@ -57,4 +56,62 @@ body {
   }
 }
 
+// Characters
 
+// Mixins
+.base-character-portrait (@class) {
+  (~".character.@{class}") {
+    .portrait {
+      background-image: url("../img/characters/base/@{class}.png");
+    }
+  }
+}
+
+.rank-1-character-portrait (@class) {
+  (~".character.@{class}") {
+    .portrait {
+      background-image: url("../img/characters/rank1/@{class}.png");
+    }
+  }
+}
+
+// Basic Character Structure
+
+.character {
+  .title {
+    text-align: center;
+  }
+  .portrait {
+    background-image: url(../img/empty.character.frame.png);
+    background-size: 150px;
+  }
+}
+
+// Base Character Portraits
+
+.base-character-portrait("raider");
+.base-character-portrait("archer");
+.base-character-portrait("warrior");
+.base-character-portrait("shieldbanger");
+
+// Rank 1 Character Portraits
+
+// Warriors
+.rank-1-character-portrait("warhawk");
+.rank-1-character-portrait("warleader");
+.rank-1-character-portrait("warmaster");
+
+// Archers
+.rank-1-character-portrait("bowmaster");
+.rank-1-character-portrait("skystriker");
+.rank-1-character-portrait("siegearcher");
+
+// Raiders
+.rank-1-character-portrait("raidmaster");
+.rank-1-character-portrait("thrasher");
+.rank-1-character-portrait("backbiter");
+
+// Shieldbangers
+.rank-1-character-portrait("strongarm");
+.rank-1-character-portrait("provoker");
+.rank-1-character-portrait("shieldmaster");

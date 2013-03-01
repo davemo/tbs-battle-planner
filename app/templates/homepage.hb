@@ -14,28 +14,28 @@
       </div>
       <div id="planner">
         <ul class="loadout">
-          <li class="character">
-            <div class="title"></div>
+          <li class="character warhawk">
+            <div class="title">warhawk</div>
             <div class="portrait"></div>
           </li>
-          <li class="character">
-            <div class="title"></div>
+          <li class="character provoker">
+            <div class="title">provoker</div>
             <div class="portrait"></div>
           </li>
-          <li class="character">
-            <div class="title"></div>
+          <li class="character skystriker">
+            <div class="title">skystriker</div>
             <div class="portrait"></div>
           </li>
-          <li class="character">
-            <div class="title"></div>
+          <li class="character thrasher">
+            <div class="title">thrasher</div>
             <div class="portrait"></div>
           </li>
-          <li class="character">
-            <div class="title"></div>
+          <li class="character shieldbanger">
+            <div class="title">shieldbanger</div>
             <div class="portrait"></div>
           </li>
-          <li class="character">
-            <div class="title"></div>
+          <li class="character backbiter">
+            <div class="title">backbiter</div>
             <div class="portrait"></div>
           </li>
         </ul>
