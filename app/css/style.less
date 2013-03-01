@@ -24,7 +24,7 @@ body {
 
 
 
-#wrapper, #header .inner, #selected-characters {
+.wrapper {
   width: 960px;
   margin: 0 auto;
 }
@@ -45,7 +45,6 @@ body {
 }
 
 #loadout {
-  height: 600px;
   .inner {
     padding: 20px 0;
     #gradient > .vertical(#121a1d, #25404c);
@@ -53,27 +52,61 @@ body {
   }
 }
 
-#selected-characters {
+#character-selector, #selected-characters, .classes {
   overflow: hidden;
+}
+
+#character-selector {
+  padding: 20px 0px;
+  #gradient > .vertical(#5f4d4d, #8b6049);
   .character {
-    width: 150px;
-    height: 180px;
-    float: left;
-    margin-right: 10px;
-    .title {
-      font-size: 1.4em;
-      height: 30px;
-      .black-outline();
-    }
-    .portrait {
-      height: 150px;
-    }
-    &:first-child {
-      margin-left: 5px;
-    }
+    width: 125px;
+    margin-right: 35px;
     &:last-child {
       margin-right: 0px;
+    };
+    .title {
+      width: 125px;
     }
+    .portrait {
+      width: 125px;
+      height: 125px;
+      background-size: 125px;
+    }
+  }
+  .classtype {
+    float: left;
+    margin-right: 60px;
+    &.archers, &.shieldbangers {
+      margin-right: 0px;
+    }
+    > .title {
+      border-bottom: 1px solid #999;
+      line-height: 60px;
+      margin-bottom: 10px;
+      font-size: 3em;
+    }
+  }
+}
+
+.character {
+  width: 150px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+  .title {
+    font-size: 1.4em;
+    height: 30px;
+    .black-outline();
+  }
+  .portrait {
+    height: 150px;
+  }
+  &:first-child {
+    margin-left: 5px;
+  }
+  &:last-child {
+    margin-right: 0px;
   }
 }
 
