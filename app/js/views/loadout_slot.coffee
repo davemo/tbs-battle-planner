@@ -13,6 +13,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
       @model.clear()
       @model.set(new tbs.models.Unit().attributes)
       @model.set("editMode", "choosing")
+      @model.trigger("change:editMode")
     else
       e.preventDefault()
 
@@ -29,6 +30,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   initialize: (options) ->
     @slot = options.slot
     @model.on("change", @render)
+    @model.on("change", @updateHelpText)
 
   renderAttributes: =>
     attrs = @attributes()
@@ -39,3 +41,12 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     if stats = @model.get('stats')
       stats.each (stat) =>
         @$(".stats-overlay .#{stat.get('stat')}").text(stat.get('current'))
+
+  updateHelpText: =>
+    if @model.isChosen()
+      @$(".help-text").text("")
+    else
+      @$(".help-text").text("Click a unit below")
+
+
+

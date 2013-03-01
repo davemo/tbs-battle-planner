@@ -1,6 +1,7 @@
 <div class="title">{{ name }}</div>
-<div class="portrait"></div>
-<span class="arrow">&#9650;</span>
+<div class="portrait">
+  <span class="help-text">Click a unit below</span>
+</div>
 <span class="remove" data-slot="{{ data-slot }}">&times;</span>
 <ul class="stats-overlay">
   <li class="armor">&nbsp;</li>

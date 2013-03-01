@@ -6,10 +6,12 @@ def 'tbs.views.UnitSelector', class UnitSelector extends Backbone.Fixins.SuperVi
     class: "character #{@model.get('name')}"
 
   events:
-    "click" : "assignUnitToLoadoutSlot"
+    "click" : "assignUnitToNextAvailableLoadoutSlot"
 
-  assignUnitToLoadoutSlot: =>
-    # get the active loadout slot
-    loadout_unit = tbs.BattlePlanner.loadout_units.where(editMode: "choosing")[0]
+  assignUnitToNextAvailableLoadoutSlot: =>
+    # get the next active loadout slot
+    loadout_unit = tbs.BattlePlanner.loadout_units.find (unit) => unit.isEmpty()
+    if not loadout_unit then loadout_unit = tbs.BattlePlanner.loadout_units.at(5)
     loadout_unit.clear()
     loadout_unit.set(@model.clone().attributes)
+    loadout_unit.set("editMode", "chosen")
