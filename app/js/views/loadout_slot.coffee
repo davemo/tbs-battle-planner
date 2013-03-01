@@ -3,7 +3,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   tagName: "li"
 
   attributes: =>
-    "class"     : "character #{@model.get('type')} #{@model.get('editMode')}"
+    "class"     : "character #{@model.get('name')} #{@model.get('editMode')}"
     "data-slot" : @slot
 
   initialize: (options) ->

@@ -4,6 +4,8 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
     "click .character" : "setEditMode"
 
   initialize: =>
+    @stat_editor   = $("#stat-editor")
+    @unit_selector = $("#character-selector")
     @collection.on("change:editMode", @showProperEditWindow)
 
   setEditMode: (e) =>
@@ -17,8 +19,12 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
 
   showProperEditWindow: (__, editMode) =>
     switch editMode
-      when "choosing" then $("#character-selector").slideDown()
-      when "editing"  then alert("editing")
+      when "choosing"
+        @stat_editor.hide()
+        @unit_selector.show()
+      when "stats"
+        @unit_selector.hide()
+        @stat_editor.show()
 
   render: =>
     @collection.each (unit, i) =>
