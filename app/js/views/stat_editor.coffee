@@ -6,6 +6,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
   renderStatControls: =>
     unit_stats = @model.get('stats')
     unit_stats.each (stat, i) =>
+      debugger
       @$(".stats").append(new tbs.views.StatControl(model: stat).render().el)
 
   hide: =>
