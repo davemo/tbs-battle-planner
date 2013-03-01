@@ -7,11 +7,14 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "mouseout"      : "hideOverlay"
     "click .remove" : "removeFromLoadout"
 
-  removeFromLoadout: ->
-    @model.collection.resetEditModeOnAllUnits()
-    @model.clear()
-    @model.set(new tbs.models.Unit().attributes)
-    @model.set("editMode", "choosing")
+  removeFromLoadout: (e) ->
+    if confirm("Remove #{@model.get('name')} from slot #{@slot}?")
+      @model.collection.resetEditModeOnAllUnits()
+      @model.clear()
+      @model.set(new tbs.models.Unit().attributes)
+      @model.set("editMode", "choosing")
+    else
+      e.preventDefault()
 
   attributes: =>
     "class"     : "character #{@model.get('name')} #{@model.get('editMode')}"
