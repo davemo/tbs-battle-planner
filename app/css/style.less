@@ -76,7 +76,7 @@ body {
   }
   .classtype {
     float: left;
-    margin-right: 60px;
+    margin-right: 55px;
     &.archers, &.shieldbangers {
       margin-right: 0px;
     }
@@ -86,6 +86,44 @@ body {
       margin-bottom: 10px;
       font-size: 3em;
     }
+  }
+}
+
+.controls {
+  clear: both;
+  button {
+    float: right;
+  }
+}
+
+#stat-editor {
+  background: blue;
+  overflow: hidden;
+  padding: 20px 0;
+  .title {
+    border-bottom: 1px solid #999;
+    line-height: 60px;
+    margin-bottom: 10px;
+    font-size: 3em;
+  }
+  .portrait, .stats {
+    float: left;
+  }
+  .stats {
+    width: 775px;
+    li {
+      text-align: right;
+      padding-right: 100px;
+      height: 50px;
+      margin: 10px 0px;
+      font-size: 3em;
+    }
+  }
+  .portrait {
+    width: 160px;
+    height: 460px;
+    margin-right: 20px;
+    background-size: 100%;
   }
 }
 
@@ -129,6 +167,13 @@ body {
   }
 }
 
+// Large Portraits for Stat Editor
+.rank-1-stat-editor-portrait (@class) {
+  (~"#stat-editor .portrait.@{class}") {
+    background-image: url("../img/characters/portraits/@{class}.png");
+  }
+}
+
 // Basic Character Structure
 
 .character {
@@ -147,6 +192,28 @@ body {
 .base-character-portrait("archer");
 .base-character-portrait("warrior");
 .base-character-portrait("shieldbanger");
+
+// Rank 1 Stat Editor Large Portraits
+
+// Warriors
+.rank-1-stat-editor-portrait("warhawk");
+.rank-1-stat-editor-portrait("warleader");
+.rank-1-stat-editor-portrait("warmaster");
+
+// Archers
+.rank-1-stat-editor-portrait("bowmaster");
+.rank-1-stat-editor-portrait("skystriker");
+.rank-1-stat-editor-portrait("siegearcher");
+
+// Raiders
+.rank-1-stat-editor-portrait("raidmaster");
+.rank-1-stat-editor-portrait("thrasher");
+.rank-1-stat-editor-portrait("backbiter");
+
+// Shieldbangers
+.rank-1-stat-editor-portrait("strongarm");
+.rank-1-stat-editor-portrait("provoker");
+.rank-1-stat-editor-portrait("shieldmaster");
 
 // Rank 1 Character Portraits
 
