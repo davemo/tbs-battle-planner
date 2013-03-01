@@ -22,7 +22,7 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
       when "choosing"
         @stat_editor.hide()
         @unit_selector.show()
-      when "stats"
+      when "edit-stats"
         @unit_selector.hide()
         @stat_editor.show()
 

@@ -1,25 +1,25 @@
 def 'tbs.BattlePlanner', class BattlePlanner
 
   constructor: ->
-    @units         = new tbs.collections.Units(tbs.data.Units())
-    @loadout_units = new tbs.collections.Units(@defaultLoadoutUnits())
-    @unit_selector = $("#unit-groupings")
-
+    @units          = new tbs.collections.Units(tbs.data.Units())
+    @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
 
     # loadout
     @loadout = new tbs.views.Loadout(
-      el: "#loadout",
+      el: "#loadout"
       collection: @loadout_units
     ).render()
 
-    # character-selector
-    groupings = @units.groupBy("type")
-    delete groupings.base
-    _(groupings).each (units, type) =>
-      @unit_selector.append(new tbs.views.UnitGrouping(
-        units: units
-        type: type
-      ).render().el)
+    #character_selector
+    @character_selector = new tbs.views.CharacterSelector(
+      el: "#character-selector"
+      collection: @unitTypesWithoutBase()
+    ).render()
+
+    #stat-editor
+
+  unitTypesWithoutBase: =>
+    _(@units.groupBy("type")).tap (types) -> delete types.base
 
   defaultLoadoutUnits: =>
     _(_.range(0,6)).map => new tbs.models.Unit

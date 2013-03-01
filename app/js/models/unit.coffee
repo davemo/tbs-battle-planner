@@ -12,7 +12,7 @@ def 'tbs.models.Unit', class Unit extends Backbone.Model
     @get("stats") isnt undefined
 
   editStats: =>
-    @set("editMode", "stats")
+    @set("editMode", "edit-stats")
 
   choose: =>
     @set("editMode", "choosing")
