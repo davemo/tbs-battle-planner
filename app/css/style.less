@@ -22,7 +22,11 @@ body {
   background: #000000 url(../img/tbs.background.jpg) no-repeat 50% 0%
 }
 
+// Initial State
 
+#character-selector, #stat-editor {
+  display: none;
+}
 
 .wrapper {
   width: 960px;
@@ -74,7 +78,7 @@ body {
       background-size: 125px;
     }
   }
-  .classtype {
+  .unit-type {
     float: left;
     margin-right: 25px;
     &.archers, &.shieldbangers {
@@ -176,6 +180,9 @@ body {
   height: 180px;
   float: left;
   margin-right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
   .title {
     font-size: 1.4em;
     height: 30px;

@@ -1,11 +1,10 @@
 def 'tbs.views.UnitGrouping', class UnitGrouping extends Backbone.Fixins.SuperView
 
   attributes:
-    class: "classtype"
+    class: "unit-type"
 
   initialize: (options) ->
     @type  = options.type
-    @name  = options.name
     @units = options.units
 
   templateContext: =>
