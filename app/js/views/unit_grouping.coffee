@@ -7,6 +7,11 @@ def 'tbs.views.UnitGrouping', class UnitGrouping extends Backbone.Fixins.SuperVi
     @type  = options.type
     @units = options.units
 
-  templateContext: =>
-    type: @type
-    units: _(@units).map (unit) -> unit.toJSON()
+  renderTitle: =>
+    @$(".title").text(@type)
+
+  renderUnits: =>
+    _(@units).each (unit) =>
+      @$(".classes").append(new tbs.views.UnitSelector(
+        model: unit
+      ).render().el)

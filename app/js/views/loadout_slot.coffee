@@ -1,10 +1,18 @@
 def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
 
-  events:
-    "click" : -> $("#character-selector").slideDown()
+  tagName: "li"
 
-  initialize: ->
-    @model ||= new tbs.models.Unit
+  attributes: =>
+    "class"     : "character #{@model.get('type')} #{@model.get('editMode')}"
+    "data-slot" : @slot
+
+  initialize: (options) ->
+    @slot = options.slot
     @model.on("change", @render)
+
+  renderAttributes: =>
+    attrs = @attributes()
+    @$el.attr("class",     attrs.class)
+    @$el.attr("data-slot", attrs['data-slot'])
 
 

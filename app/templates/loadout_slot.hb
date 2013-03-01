@@ -1,4 +1,3 @@
-<li class="character {{ type }}">
-  <div class="title">{{ title }}</div>
-  <div class="portrait"></div>
-</li>
+<div class="title">{{ title }}</div>
+<div class="portrait"></div>
+<span class="arrow">▲</span>
