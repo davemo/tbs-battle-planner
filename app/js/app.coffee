@@ -24,7 +24,11 @@ def 'tbs.BattlePlanner', class BattlePlanner
     _(@units.groupBy("type")).tap (types) -> delete types.base
 
   defaultLoadoutUnits: =>
-    _(_.range(0,6)).map => new tbs.models.Unit
+    _(_.range(0,6)).map (slot) =>
+      if slot is 0
+        new tbs.models.Unit(editMode: "choosing")
+      else
+        new tbs.models.Unit
 
   start: ->
     Backbone.history.start()

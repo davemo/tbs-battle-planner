@@ -27,5 +27,11 @@
     </div>
 
     <div id="stat-editor"></div>
+
+    <div id="credits">
+      <div class="wrapper">
+        built by <a href="http://www.twitter.com/@dmosher">@dmosher</a>
+      </div>
+    </div>
   </body>
 </html>
