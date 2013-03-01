@@ -31,6 +31,9 @@
     <div id="credits">
       <div class="wrapper">
         built by <a href="http://www.twitter.com/@dmosher">@dmosher</a>
+        <span class="build">
+          based on <a href="http://stoicstudio.com/forum/the-banner-saga-factions.php">The Banner Saga: Factions</a> build <span class="version">{{ pkg.version }}</span>
+        </span>
       </div>
     </div>
   </body>
