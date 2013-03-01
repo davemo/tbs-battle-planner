@@ -23,6 +23,7 @@ module.exports = require("lineman").config.extend("files",
   coffee:
     app: [
       "app/js/config/**/*.coffee",
+      "app/js/converters.coffee",
       "app/js/data/**/*.coffee",
       "app/js/models/**/*.coffee",
       "app/js/**/*.coffee"
