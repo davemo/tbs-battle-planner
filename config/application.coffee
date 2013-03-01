@@ -22,4 +22,12 @@ module.exports = require("lineman").config.extend("application",
     base: "generated"
     web:
       port: 8000
+
+  less:
+    compile:
+      options:
+        paths: ["app/css", "vendor/css"]
+
+      files:
+        "generated/css/app.less.css": ["app/css/mixins.less", "app/css/style.less"]
 )

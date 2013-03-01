@@ -2,18 +2,19 @@
 <html>
   <head>
     <title>{{ pkg.name }}</title>
-
     <link rel="stylesheet" type="text/css" href="{{ css }}" media="all" />
     <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
     <script src="{{ js }}"></script>
   </head>
   <body>
-    <div id="wrapper">
-      <div id="menu">
+    <div id="header">
+      <div class="inner">
         <h1>The Banner Saga : Factions | Battle Planner</h1>
       </div>
-      <div id="planner">
-        <ul class="loadout">
+    </div>
+    <div id="loadout">
+      <div class="inner">
+        <ul id="selected-characters">
           <li class="character warhawk">
             <div class="title">warhawk</div>
             <div class="portrait"></div>
@@ -39,6 +40,12 @@
             <div class="portrait"></div>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="planner">
+
       </div>
     </div>
   </body>
