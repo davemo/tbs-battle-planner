@@ -8,7 +8,6 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "click .remove" : "removeFromLoadout"
 
   removeFromLoadout: ->
-    debugger
     @model.collection.resetEditModeOnAllUnits()
     @model.clear()
     @model.set(new tbs.models.Unit().attributes)
