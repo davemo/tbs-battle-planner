@@ -127,17 +127,26 @@ body {
   }
 }
 
-.controls {
-  clear: both;
-  button {
-    float: right;
-  }
-}
-
 #stat-editor {
   #gradient > .vertical(#5f4d4d, #8b6049);
   overflow: hidden;
   padding: 20px 0;
+  .controls {
+    width: 775px;
+    overflow: hidden;
+    .reset, .total {
+      border: 1px solid orange;
+      display: block;
+      float: right;
+      margin-left: 10px;
+      padding: 10px;
+      color: white;
+    }
+    .reset:hover {
+      cursor: pointer;
+      background-color: rgba(222, 157, 82, 0.35)
+    }
+  }
   .title {
     border-bottom: 1px solid #999;
     line-height: 60px;

@@ -1,4 +1,4 @@
-def 'tbs.converters.buildStatsCollection', (raw_stats_array) ->
+def 'tbs.converters.buildStatsCollection', (raw_stats_array, rank) ->
 
   STATS = ["armor", "strength", "willpower", "exertion", "break"]
 

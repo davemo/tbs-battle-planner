@@ -1,7 +1,7 @@
 def 'tbs.BattlePlanner', class BattlePlanner
 
   constructor: ->
-    @units          = new tbs.collections.Units(tbs.data.Units())
+    @units          = new tbs.collections.Units(@defaultUnits())
     @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
 
     # stat editor
@@ -29,6 +29,18 @@ def 'tbs.BattlePlanner', class BattlePlanner
         new tbs.models.Unit(editMode: "choosing")
       else
         new tbs.models.Unit
+
+  defaultUnits: =>
+    RANK_0_TOTAL_POINTS = 10
+    RANK_1_TOTAL_POINTS = 11
+
+    units = tbs.data.Units()
+
+    _(units).each (unit) =>
+      unit.max_stat_points = if unit.rank is 0 then RANK_0_TOTAL_POINTS else RANK_1_TOTAL_POINTS
+      unit.allocated_stat_points = 0
+
+    units
 
   start: ->
     Backbone.history.start()

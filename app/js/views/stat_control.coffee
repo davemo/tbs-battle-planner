@@ -6,7 +6,8 @@ def 'tbs.views.StatControl', class StatControl extends Backbone.Fixins.SuperView
     "mousedown .icon"   : "increaseOrDecreaseStat"
     "contextmenu .icon" : -> false
 
-  initialize: ->
+  initialize: (options) ->
+    @unit = options.unit
     @model.on("change:current", @update)
 
   attributes: =>
@@ -20,7 +21,12 @@ def 'tbs.views.StatControl', class StatControl extends Backbone.Fixins.SuperView
       when 3 then @changeBy(-1) #right click
 
   changeBy: (amount) =>
-    @model.set({current: @model.get("current") + amount}, {validate: true})
+    # if the amount does not exceed the units max_stat_points
+      # if the amount does not exceed the stats maximum
+    if !(@unit.get('allocated_stat_points') + amount > @unit.get('max_stat_points') or @unit.get('allocated_stat_points') + amount < 0)
+      if !(@model.get('current') + amount < @model.get('min') or @model.get('current') + amount > @model.get('max'))
+        @model.set(current: @model.get("current") + amount)
+        @unit.set(allocated_stat_points: @unit.get('allocated_stat_points') + amount)
 
   update: =>
     @$(".current").text(@model.get("current"))
