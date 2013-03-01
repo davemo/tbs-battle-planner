@@ -7,3 +7,12 @@ def 'tbs.models.Unit', class Unit extends Backbone.Model
     stats: undefined
     # client attrs
     editMode: ""
+
+  isChosen: =>
+    @get("stats") isnt undefined
+
+  editStats: =>
+    @set("editMode", "stats")
+
+  choose: =>
+    @set("editMode", "choosing")

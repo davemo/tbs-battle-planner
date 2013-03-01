@@ -14,5 +14,3 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     attrs = @attributes()
     @$el.attr("class",     attrs.class)
     @$el.attr("data-slot", attrs['data-slot'])
-
-

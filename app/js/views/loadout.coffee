@@ -1,16 +1,15 @@
 def 'tbs.views.Loadout', class Loadout extends Backbone.View
 
   events:
-    "click .character" : "setMode"
+    "click .character" : "setEditMode"
 
   initialize: =>
     @collection.on("change:editMode", @showProperEditWindow)
 
-  setMode: (e) =>
+  setEditMode: (e) =>
     @resetEditModeOnAllUnits()
-    slot = $(e.currentTarget).data("slot")
-    unit = @collection.at(slot)
-    unit.set("editMode", "choosing")
+    unit = @collection.at($(e.currentTarget).data("slot"))
+    if unit.isChosen() then unit.editStats() else unit.choose()
 
   resetEditModeOnAllUnits: =>
     @collection.each (unit) =>

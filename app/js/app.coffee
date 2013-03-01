@@ -2,12 +2,9 @@ def 'tbs.BattlePlanner', class BattlePlanner
 
   constructor: ->
     @units         = new tbs.collections.Units(tbs.data.Units())
+    @loadout_units = new tbs.collections.Units(@defaultLoadoutUnits())
     @unit_selector = $("#unit-groupings")
-    @loadout_units = new tbs.collections.Units()
 
-    # default loadout models
-    _(_.range(0,6)).each =>
-      @loadout_units.add(new tbs.models.Unit)
 
     # loadout
     @loadout = new tbs.views.Loadout(
@@ -23,6 +20,9 @@ def 'tbs.BattlePlanner', class BattlePlanner
         units: units
         type: type
       ).render().el)
+
+  defaultLoadoutUnits: =>
+    _(_.range(0,6)).map => new tbs.models.Unit
 
   start: ->
     Backbone.history.start()
