@@ -1,6 +1,6 @@
 @import "mixins";
 
-.black-outline () {
+.black-text-outline () {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
@@ -40,7 +40,7 @@ body {
     font-size: 2.5em;
     text-align: center;
     color: #9abaf0;
-    .black-outline();
+    .black-text-outline();
   }
 }
 
@@ -97,14 +97,14 @@ body {
 }
 
 #stat-editor {
-  background: blue;
+  #gradient > .vertical(#5f4d4d, #8b6049);
   overflow: hidden;
   padding: 20px 0;
   .title {
     border-bottom: 1px solid #999;
     line-height: 60px;
     margin-bottom: 10px;
-    font-size: 3em;
+    font-size: 2.5em;
   }
   .portrait, .stats {
     float: left;
@@ -113,10 +113,54 @@ body {
     width: 775px;
     li {
       text-align: right;
-      padding-right: 100px;
-      height: 50px;
-      margin: 10px 0px;
-      font-size: 3em;
+      padding-right: 175px;
+      margin-bottom: 25px;
+      font-size: 2.5em;
+      border-width: 1px;
+      border-style: solid;
+      color: #ea9d2e;
+      position: relative;
+      .black-text-outline();
+      .current {
+        color: #ffdba6;
+      }
+      .max {
+        color: #ea9d2e;
+      }
+      .icon {
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: -8px;
+        width: 70px;
+        height: 70px;
+        background-size: 100%;
+      }
+    }
+    .armor {
+      background-color: #4873b2;
+      border-color: #37005a;
+    }
+    .strength {
+      background-color: #c4453b;
+      border-color: #5d0300;
+    }
+    .willpower {
+      background-color: #c5a500;
+      border-color: #602a01;
+    }
+    .exertion {
+      background-color: #458e48;
+      border-color: #004514;
+    }
+    .break {
+      background-color: #313131;
+      border-color: #070708;
+    }
+    .total {
+      margin-left: 425px;
+      width: 175px;
+      border: none;
     }
   }
   .portrait {
@@ -135,7 +179,7 @@ body {
   .title {
     font-size: 1.4em;
     height: 30px;
-    .black-outline();
+    .black-text-outline();
   }
   .portrait {
     height: 150px;
@@ -174,6 +218,12 @@ body {
   }
 }
 
+.stat-icon (@stat) {
+  (~"#stat-editor .@{stat} .icon") {
+    background-image: url("../img/icon/@{stat}.png");
+  }
+}
+
 // Basic Character Structure
 
 .character {
@@ -185,6 +235,15 @@ body {
     background-size: 150px;
   }
 }
+
+// Icons
+
+.stat-icon("armor");
+.stat-icon("strength");
+.stat-icon("willpower");
+.stat-icon("exertion");
+.stat-icon("break");
+.stat-icon("special");
 
 // Base Character Portraits
 
