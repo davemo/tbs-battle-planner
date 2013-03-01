@@ -4,10 +4,14 @@ def 'tbs.BattlePlanner', class BattlePlanner
     @units          = new tbs.collections.Units(tbs.data.Units())
     @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
 
+    #stat-editor
+    @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
+
     # loadout
     @loadout = new tbs.views.Loadout(
       el: "#loadout"
       collection: @loadout_units
+      stat_editor: @stat_editor
     ).render()
 
     #character_selector
@@ -15,8 +19,6 @@ def 'tbs.BattlePlanner', class BattlePlanner
       el: "#character-selector"
       collection: @unitTypesWithoutBase()
     ).render()
-
-    #stat-editor
 
   unitTypesWithoutBase: =>
     _(@units.groupBy("type")).tap (types) -> delete types.base
