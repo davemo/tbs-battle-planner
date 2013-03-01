@@ -1,7 +1,7 @@
 def 'tbs.views.Loadout', class Loadout extends Backbone.View
 
   events:
-    "click .character" : "setEditMode"
+    "click .character"     : "setEditMode"
 
   initialize: (options) =>
     @stat_editor   = options.stat_editor
@@ -10,12 +10,15 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
 
   setEditMode: (e) =>
     @resetEditModeOnAllUnits()
-    unit = @collection.at($(e.currentTarget).data("slot"))
+    unit = @fetchUnitFromCollectionViaSlotDataAttribute(e)
     if unit.isChosen() then unit.editStats() else unit.choose()
 
   resetEditModeOnAllUnits: =>
     @collection.each (unit) =>
       unit.set("editMode", "")
+
+  fetchUnitFromCollectionViaSlotDataAttribute: (element) =>
+    @collection.at($(element.currentTarget).data("slot"))
 
   showProperEditWindow: (unit, editMode) =>
     switch editMode
