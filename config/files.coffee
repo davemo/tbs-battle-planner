@@ -21,7 +21,6 @@ module.exports = require("lineman").config.extend("files",
     ]
 
   coffee:
-    # must be loaded before template_helpers.coffee
     app: [
       "app/js/config/**/*.coffee",
       "app/js/data/**/*.coffee",
