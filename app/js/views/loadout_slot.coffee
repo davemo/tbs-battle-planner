@@ -11,8 +11,10 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
       @model.clear()
       @model.set(new tbs.models.Unit().attributes)
+      Backbone.trigger("choose:unit")
     else
       e.preventDefault()
+      e.stopPropagation()
 
   attributes: =>
     "class"     : "character #{@model.get('name')}"
