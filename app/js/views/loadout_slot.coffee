@@ -3,9 +3,11 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   tagName: "li"
 
   events:
-    "mouseover"     : "showOverlay"
-    "mouseout"      : "hideOverlay"
-    "click .remove" : "removeFromLoadout"
+    "mouseover"         : "showOverlay"
+    "mouseout"          : "hideOverlay"
+    "click .remove"     : "removeFromLoadout"
+    "click .move-left"  : "moveLeft"
+    "click .move-right" : "moveRight"
 
   removeFromLoadout: (e) ->
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
@@ -21,10 +23,35 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "data-slot" : @slot
 
   showOverlay: =>
-    if @model.isChosen() then @$(".remove").css(display: "block")
+    if @model.isChosen() then @$(".remove").show()
+    if @model.isChosen()
+      @$(".move-left, .move-right").show()
+
+      if @position() is 0 then @$(".move-left").hide()
+      if @position() is 5 then @$(".move-right").hide()
+
+  moveLeft: (e) =>
+    e.stopPropagation()
+    @move(@position(-1))
+
+  moveRight: (e) =>
+    e.stopPropagation()
+    @move(@position(1))
+
+  move: (new_position_index) =>
+    original_attrs = _(@model.attributes).clone()
+    new_attrs      = _(@model.collection.at(new_position_index).attributes).clone()
+    other_model    = @model.collection.at(new_position_index)
+    @model.clear()
+    @model.set(new_attrs)
+    other_model.clear()
+    other_model.set(original_attrs)
+
+  position: (offset=0)=>
+    @model.collection.indexOf(@model) + offset
 
   hideOverlay: =>
-    @$(".remove").hide()
+    @$(".remove, .move-left, .move-right").hide()
 
   initialize: (options) ->
     @slot = options.slot

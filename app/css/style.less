@@ -19,7 +19,7 @@ ul, li {
 }
 
 body {
-  background: #000000 url(../img/tbs.background.jpg) no-repeat 50% 0%
+  background: black;
 }
 
 // Initial State
@@ -110,6 +110,23 @@ body {
   .character {
     padding-bottom: 30px;
     position: relative;
+    .move-left, .move-right {
+      position: absolute;
+      display: none;
+      width: 34px;
+      height: 34px;
+      top: 88px;
+      background-size: 100%;
+      z-index: 5;
+    }
+    .move-left {
+      background-image: url(../img/icon/move-left.png);
+      left: -8px;
+    }
+    .move-right {
+      background-image: url(../img/icon/move-right.png);
+      right: -8px;
+    }
     .arrow {
       display: none;
       position: absolute;
