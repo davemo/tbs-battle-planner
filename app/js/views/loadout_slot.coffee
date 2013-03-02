@@ -27,7 +27,6 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   initialize: (options) ->
     @slot = options.slot
     @model.on("change", @render)
-    @model.on("change", @updateHelpText)
 
   renderAttributes: =>
     attrs = @attributes()
@@ -43,7 +42,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     @$(".allocated-max-stats .allocated").text(@model.get("allocated_stat_points"))
     @$(".allocated-max-stats .max").text(@model.get("max_stat_points"))
 
-  updateHelpText: =>
+  renderHelpText: =>
     if @model.isChosen()
       @$(".help-text").text("")
     else

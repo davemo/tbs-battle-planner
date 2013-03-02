@@ -1,7 +1,10 @@
 def 'tbs.views.Loadout', class Loadout extends Backbone.View
 
   events:
-    "click .character"     : "editUnit"
+    "click .character" : "editUnit"
+
+  initialize: =>
+    Backbone.on("loaded:from:hash", @render)
 
   editUnit: (e) =>
     unit = @fetchUnitFromCollectionViaSlotDataAttribute(e)
@@ -14,6 +17,7 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
     @collection.at($(element.currentTarget).data("slot"))
 
   render: =>
+    @$("#selected-characters").empty()
     @collection.each (unit, i) =>
       @$("#selected-characters").append(new tbs.views.LoadoutSlot(
         model: unit

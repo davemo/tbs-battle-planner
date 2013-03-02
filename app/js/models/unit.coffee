@@ -4,6 +4,8 @@ def 'tbs.models.Unit', class Unit extends Backbone.Model
     name: ""
     type: ""
     stats: undefined
+    allocated_stat_points: 0
+    max_stat_points: 0
 
   isChosen: =>
     @has("stats")

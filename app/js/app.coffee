@@ -3,6 +3,7 @@ def 'tbs.BattlePlanner', class BattlePlanner
   constructor: ->
     @units          = new tbs.collections.Units(@defaultUnits())
     @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
+    @router         = new tbs.Router(loadout: @loadout_units)
 
     # stat editor
     @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
