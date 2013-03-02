@@ -7,7 +7,6 @@ def 'tbs.models.Unit', class Unit extends Backbone.Model
     stats: undefined
     # client attrs
     editMode: ""
-    helpText: "Click to add a unit"
 
   isChosen: =>
     @has("stats")

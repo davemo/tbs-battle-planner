@@ -11,7 +11,6 @@ def 'tbs.BattlePlanner', class BattlePlanner
     @loadout = new tbs.views.Loadout(
       el: "#loadout"
       collection: @loadout_units
-      stat_editor: @stat_editor
     ).render()
 
     #character_selector

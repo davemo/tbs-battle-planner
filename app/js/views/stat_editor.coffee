@@ -4,6 +4,10 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     "click .reset" : "resetToMinimums"
     "click .done"  : "hide"
 
+  initialize: =>
+    Backbone.on("edit:unit", @show)
+    Backbone.on("choose:unit", @hide)
+
   renderVisible: =>
     if @model.isChosen() then @$el.show() else @$el.hide()
 
@@ -24,10 +28,12 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     @$(".total .max").text(@model.get("max_stat_points"))
 
   hide: =>
-    $("#character-selector").show()
     @$el.hide()
 
   show: (unit) =>
     @model = unit
+    # had to clone stats here, as editing the same class was buggy
+    @model.set("stats", new tbs.collections.UnitStats(@model.get('stats').toJSON()))
     @model.on("change:allocated_stat_points", @renderTotals)
     @render()
+    @$el.show()
