@@ -24,10 +24,7 @@ def 'tbs.BattlePlanner', class BattlePlanner
 
   defaultLoadoutUnits: =>
     _(_.range(0,6)).map (slot) =>
-      if slot is 0
-        new tbs.models.Unit(editMode: "choosing")
-      else
-        new tbs.models.Unit
+      new tbs.models.Unit
 
   defaultUnits: =>
     RANK_0_TOTAL_POINTS = 10

@@ -2,7 +2,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
 
   events:
     "click .reset" : "resetToMinimums"
-    "click .done"  : "hide"
+    "click .done"  : -> Backbone.trigger("choose:unit")
 
   initialize: =>
     Backbone.on("edit:unit", @show)

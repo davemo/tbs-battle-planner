@@ -11,13 +11,11 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
       @model.clear()
       @model.set(new tbs.models.Unit().attributes)
-      @model.set("editMode", "choosing")
-      @model.trigger("change:editMode")
     else
       e.preventDefault()
 
   attributes: =>
-    "class"     : "character #{@model.get('name')} #{@model.get('editMode')}"
+    "class"     : "character #{@model.get('name')}"
     "data-slot" : @slot
 
   showOverlay: =>
@@ -44,8 +42,6 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   renderAllocatedStatsOverlay: =>
     @$(".allocated-max-stats .allocated").text(@model.get("allocated_stat_points"))
     @$(".allocated-max-stats .max").text(@model.get("max_stat_points"))
-
-
 
   updateHelpText: =>
     if @model.isChosen()

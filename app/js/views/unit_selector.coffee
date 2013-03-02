@@ -14,4 +14,3 @@ def 'tbs.views.UnitSelector', class UnitSelector extends Backbone.Fixins.SuperVi
     if not loadout_unit then loadout_unit = tbs.BattlePlanner.loadout_units.at(5)
     loadout_unit.clear()
     loadout_unit.set(@model.clone().attributes)
-    loadout_unit.set("editMode", "chosen")
