@@ -17,7 +17,7 @@ def 'tbs.data.Units', ->
       name: "thrasher"
       type: "raider"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[5,11], [8,12], [3,13], [1,3], [1,3]])
+      stats: tbs.converters.buildStatsCollection([[5,11], [8,12], [3,13], [1,3], [1,2]])
     }
     {
       name: "backbiter"
@@ -95,6 +95,6 @@ def 'tbs.data.Units', ->
       name: "shieldmaster"
       type: "shieldbanger"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[9,16], [8,14], [2,8], [1,1], [1,3]])
+      stats: tbs.converters.buildStatsCollection([[9,16], [8,13], [2,8], [1,2], [1,4]])
     }
   ]
