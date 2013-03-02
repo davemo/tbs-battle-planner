@@ -10,3 +10,6 @@
   <li class="exertion">&nbsp;</li>
   <li class="break">&nbsp;</li>
 </ul>
+<div class="allocated-max-stats">
+  <span class="allocated">0</span>/<span class="max">11</span>
+</div>

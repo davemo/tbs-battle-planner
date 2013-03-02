@@ -41,6 +41,12 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
       stats.each (stat) =>
         @$(".stats-overlay .#{stat.get('stat')}").text(stat.get('current'))
 
+  renderAllocatedStatsOverlay: =>
+    @$(".allocated-max-stats .allocated").text(@model.get("allocated_stat_points"))
+    @$(".allocated-max-stats .max").text(@model.get("max_stat_points"))
+
+
+
   updateHelpText: =>
     if @model.isChosen()
       @$(".help-text").text("")
