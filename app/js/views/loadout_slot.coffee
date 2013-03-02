@@ -9,7 +9,6 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
 
   removeFromLoadout: (e) ->
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
-      @model.collection.resetEditModeOnAllUnits()
       @model.clear()
       @model.set(new tbs.models.Unit().attributes)
       @model.set("editMode", "choosing")

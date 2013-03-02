@@ -9,9 +9,8 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
     @collection.on("change:editMode", @showProperEditWindow)
 
   setEditMode: (e) =>
-    @collection.resetEditModeOnAllUnits()
     unit = @fetchUnitFromCollectionViaSlotDataAttribute(e)
-    if unit.isChosen() then unit.editStats() else unit.choose()
+    if unit.isChosen() then unit.editStats()
 
   fetchUnitFromCollectionViaSlotDataAttribute: (element) =>
     @collection.at($(element.currentTarget).data("slot"))
