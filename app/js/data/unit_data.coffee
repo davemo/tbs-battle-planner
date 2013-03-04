@@ -89,7 +89,7 @@ def 'tbs.data.Units', ->
       name: "strongarm"
       type: "shieldbanger"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[9,15], [8,15], [2,9], [0,2], [1,2]])
+      stats: tbs.converters.buildStatsCollection([[9,15], [9,15], [2,9], [0,2], [1,2]])
     }
     {
       name: "shieldmaster"
