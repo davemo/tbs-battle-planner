@@ -12,6 +12,6 @@ def 'tbs.views.UnitGrouping', class UnitGrouping extends Backbone.Fixins.SuperVi
 
   renderUnits: =>
     _(@units).each (unit) =>
-      @$(".classes").append(new tbs.views.UnitSelector(
-        model: unit
-      ).render().el)
+      unit = new tbs.views.UnitSelector(model: unit)
+      @$(".classes").append(unit.render().el)
+      unit.draggable()

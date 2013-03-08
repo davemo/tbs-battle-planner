@@ -61,6 +61,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     attrs = @attributes()
     @$el.attr("class",     attrs.class)
     @$el.attr("data-slot", attrs['data-slot'])
+    @$el.data("loadout_slot", @)
 
   renderStatsOverlay: =>
     if stats = @model.get('stats')
@@ -76,6 +77,13 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
       @$(".help-text").text("")
     else
       @$(".help-text").text("Click a unit below")
+      
+  droppable: =>
+    @$el.droppable
+      accept: ".character.unit-selector"
+      drop: (e, ui) =>
+        selector = ui.draggable.data("unit_selector")
+        selector.assignToLoadoutSlot @slot
 
 
 

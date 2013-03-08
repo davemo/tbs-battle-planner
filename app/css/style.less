@@ -60,7 +60,7 @@ body {
   bottom: 38px;
   right: 8px;
   position: absolute;
-  z-index: 4;
+  z-index: 1;
 }
 
 .stats-overlay {
@@ -180,10 +180,7 @@ body {
   #gradient > .vertical(#5f4d4d, #8b6049);
   .character {
     width: 125px;
-    margin-right: 35px;
-    &:last-child {
-      margin-right: 0px;
-    };
+    margin: 0 13px;
     .title {
       width: 125px;
     }
@@ -195,7 +192,7 @@ body {
   }
   .unit-type {
     float: left;
-    margin-right: 25px;
+    margin: 0 13px;
     &.archers, &.shieldbangers {
       margin-right: 0px;
     }
@@ -313,7 +310,7 @@ body {
   width: 150px;
   height: 180px;
   float: left;
-  margin-right: 10px;
+  margin: 0 5px;
   &:hover {
     cursor: pointer;
   }
@@ -324,12 +321,6 @@ body {
   }
   .portrait {
     height: 150px;
-  }
-  &:first-child {
-    margin-left: 5px;
-  }
-  &:last-child {
-    margin-right: 0px;
   }
 }
 
@@ -447,3 +438,7 @@ body {
 .rank-1-character-portrait("strongarm");
 .rank-1-character-portrait("provoker");
 .rank-1-character-portrait("shieldmaster");
+
+.ui-draggable-dragging .title {
+  display: none;
+}
