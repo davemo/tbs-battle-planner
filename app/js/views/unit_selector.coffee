@@ -3,7 +3,7 @@ def 'tbs.views.UnitSelector', class UnitSelector extends Backbone.Fixins.SuperVi
   tagName: "li"
 
   attributes: =>
-    class: "character #{@model.get('name')}"
+    class: "character unit-selector #{@model.get('name')}"
 
   events:
     "click" : "assignUnitToNextAvailableLoadoutSlot"
@@ -14,3 +14,12 @@ def 'tbs.views.UnitSelector', class UnitSelector extends Backbone.Fixins.SuperVi
     if not loadout_unit then loadout_unit = tbs.BattlePlanner.loadout_units.at(5)
     loadout_unit.clear()
     loadout_unit.set(@model.clone().attributes)
+
+  assignToLoadoutSlot: (slot) =>
+    loadout_unit = tbs.BattlePlanner.loadout_units.at(slot)
+    loadout_unit.clear()
+    loadout_unit.set(@model.clone().attributes)
+    
+  draggable: =>
+    @$el.data('unit_selector', @).draggable
+      helper: "clone"
