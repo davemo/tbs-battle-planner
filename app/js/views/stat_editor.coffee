@@ -1,8 +1,9 @@
 def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
 
   events:
-    "click .reset" : "resetToMinimums"
-    "click .done"  : -> Backbone.trigger("choose:unit")
+    "click .reset"       : "resetToMinimums"
+    "click .done"        : -> Backbone.trigger("choose:unit")
+    "click .change-rank" : "setRank"
 
   initialize: =>
     Backbone.on("edit:unit", @show)
@@ -27,6 +28,17 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     @$(".total .allocated").text(@model.get("allocated_stat_points"))
     @$(".total .max").text(@model.get("max_stat_points"))
 
+  renderRankChanger: =>
+    @$("#rank-changer").prop("class", "rank#{@model.get("rank")}")
+
+  renderRankInEditorTitle: =>
+    @$(".title .rank").text(@model.get("rank"))
+
+  setRank: (e) =>
+    rank = parseInt($(e.currentTarget).text(), 10)
+    @model.set({rank})
+    @resetToMinimums()
+
   hide: =>
     @$el.hide()
 
@@ -35,5 +47,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     # had to clone stats here, as editing the same class was buggy
     @model.set("stats", new tbs.collections.UnitStats(@model.get('stats').toJSON()))
     @model.on("change:allocated_stat_points", @renderTotals)
+    @model.on("change:rank", @renderRankChanger)
+    @model.on("change:rank", @renderRankInEditorTitle)
     @render()
     @$el.show()

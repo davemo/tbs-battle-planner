@@ -219,10 +219,14 @@ body {
   #gradient > .vertical(#5f4d4d, #8b6049);
   overflow: hidden;
   padding: 20px 0;
+  .title-and-controls {
+    position: relative;
+  }
   .controls {
-    width: 775px;
-    overflow: hidden;
-    .reset, .total, .done {
+    position: absolute;
+    top: 0;
+    right: 0;
+    .reset, .total, .done, #rank-changer {
       border: 1px solid orange;
       display: block;
       float: right;
@@ -230,10 +234,30 @@ body {
       padding: 10px;
       color: white;
     }
-    .reset:hover, .done:hover {
-      cursor: pointer;
-      background-color: rgba(222, 157, 82, 0.35)
+    #rank-changer {
+      padding: 0 10px;
+      padding-right: 0px;
+      .ui-title {
+        padding-right: 5px;
+      }
+      &.rank1 .set-rank-1,
+      &.rank2 .set-rank-2,
+      &.rank3 .set-rank-3 {
+        background-color: rgba(222, 157, 82, 0.35);
+      }
     }
+    .change-rank {
+      display: inline-block;
+      border-left: 1px solid orange;
+      padding: 10px;
+      color: white;
+    }
+    .reset:hover, .done:hover, .change-rank:hover {
+      cursor: pointer;
+      background-color: rgba(222, 157, 82, 0.35);
+    }
+
+
   }
   .title {
     border-bottom: 1px solid #999;
@@ -245,6 +269,7 @@ body {
     float: left;
   }
   .stats {
+    margin-top: 30px;
     width: 775px;
     li {
       text-align: right;

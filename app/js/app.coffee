@@ -28,16 +28,17 @@ def 'tbs.BattlePlanner', class BattlePlanner
       new tbs.models.Unit
 
   defaultUnits: =>
-    RANK_0_TOTAL_POINTS = 10
-    RANK_1_TOTAL_POINTS = 11
+    _(tbs.data.Units()).tap (units) =>
+      _(units).each (unit) =>
+        unit.max_stat_points = @maxStatPointsForRank(unit.rank)
+        unit.allocated_stat_points = 0
 
-    units = tbs.data.Units()
-
-    _(units).each (unit) =>
-      unit.max_stat_points = if unit.rank is 0 then RANK_0_TOTAL_POINTS else RANK_1_TOTAL_POINTS
-      unit.allocated_stat_points = 0
-
-    units
+  maxStatPointsForRank: (rank) =>
+    switch rank
+      when 0 then 10
+      when 1 then 11
+      when 2 then 12
+      when 3 then 13
 
   start: ->
     Backbone.history.start()

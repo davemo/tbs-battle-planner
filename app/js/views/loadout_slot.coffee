@@ -56,6 +56,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   initialize: (options) ->
     @slot = options.slot
     @model.on("change", @render)
+    @model.on("change:rank", @updateMaxStatPoints)
 
   renderAttributes: =>
     attrs = @attributes()
@@ -76,6 +77,9 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
       @$(".help-text").text("")
     else
       @$(".help-text").text("Click a unit below")
+
+  updateMaxStatPoints: (__, new_rank) =>
+    @model.set("max_stat_points", tbs.BattlePlanner.maxStatPointsForRank(new_rank))
 
 
 
