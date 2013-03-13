@@ -51,5 +51,6 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     @model.on("change:allocated_stat_points", @renderTotals)
     @model.on("change:rank", @renderRankChanger)
     @model.on("change:rank", @renderRankInEditorTitle)
+    @model.on("change:rank", @renderTotals)
     @render()
     @$el.show()
