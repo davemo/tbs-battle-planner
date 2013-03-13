@@ -36,8 +36,10 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
 
   setRank: (e) =>
     rank = parseInt($(e.currentTarget).text(), 10)
+    oldrank = @model.get("rank")
     @model.set({rank})
-    @resetToMinimums()
+    if rank < oldrank
+      @resetToMinimums()
 
   hide: =>
     @$el.hide()
