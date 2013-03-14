@@ -23,7 +23,7 @@ def 'tbs.data.Units', ->
       name: "backbiter"
       type: "raider"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[5,12], [8,12], [4,11], [0,3], [1,3]])
+      stats: tbs.converters.buildStatsCollection([[5,12], [8,10], [4,13], [0,3], [1,3]])
     }
     {
       name: "archer"
