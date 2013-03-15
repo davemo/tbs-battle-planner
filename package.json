@@ -9,7 +9,7 @@
     "company": "DAVEMO Consulting"
   },
   "dependencies": {
-    "lineman"    : "~0.4.5",
+    "lineman"    : "~0.4.6",
     "handlebars" : "~1.0.8"
   }
 }
