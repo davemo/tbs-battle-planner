@@ -46,6 +46,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     @model.set(new_attrs)
     other_model.clear()
     other_model.set(original_attrs)
+    Backbone.trigger("loadout:reorganized", other_model)
 
   position: (offset=0)=>
     @model.collection.indexOf(@model) + offset

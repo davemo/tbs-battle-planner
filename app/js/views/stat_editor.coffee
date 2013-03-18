@@ -8,6 +8,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
   initialize: =>
     Backbone.on("edit:unit", @show)
     Backbone.on("choose:unit", @hide)
+    Backbone.on("loadout:reorganized", @show)
 
   renderVisible: =>
     if @model.isChosen() then @$el.show() else @$el.hide()
