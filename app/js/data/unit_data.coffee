@@ -47,7 +47,7 @@ def 'tbs.data.Units', ->
       name: "siegearcher"
       type: "archer"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[4,10], [4,7], [6,12], [1,3], [0,2]])
+      stats: tbs.converters.buildStatsCollection([[4,9], [4,7], [6,13], [1,3], [0,2]])
     }
     {
       name: "warrior"
