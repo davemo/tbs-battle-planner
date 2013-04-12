@@ -24,6 +24,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend("files",
       "app/js/converters.coffee",
       "app/js/data/**/*.coffee",
       "app/js/models/**/*.coffee",
+      "app/js/controllers/**/*.coffee",
       "app/js/**/*.coffee"
     ]
 

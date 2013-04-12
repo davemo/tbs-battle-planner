@@ -6,7 +6,7 @@
     <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
     <script src="js/app.js?v={{ pkg.version }}"></script>
   </head>
-  <body>
+  <body ng-app="tbs.BattlePlannerNG">
 
     <div id="header">
       <div class="wrapper">
@@ -14,7 +14,8 @@
       </div>
     </div>
 
-    <div id="loadout">
+    <div id="loadout" ng-controller="tbs.LoadoutController">
+      <div>{[{ data.message }]}</div>
       <div class="wrapper">
         <ul id="selected-characters"></ul>
       </div>
@@ -36,5 +37,7 @@
         </span>
       </div>
     </div>
+
+    <script src="{{ js }}?v={{ pkg.version }}"></script>
   </body>
 </html>

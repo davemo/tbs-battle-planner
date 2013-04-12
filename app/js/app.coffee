@@ -1,3 +1,12 @@
+# angular stuff
+
+# global module
+def 'tbs.BattlePlannerNG',
+  angular.module('tbs.BattlePlannerNG', []).config ($interpolateProvider) ->
+    # configure template string other than handlebars
+    $interpolateProvider.startSymbol('{[{')
+    $interpolateProvider.endSymbol('}]}')
+
 def 'tbs.BattlePlanner', class BattlePlanner
 
   constructor: ->
