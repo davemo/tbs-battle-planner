@@ -9,11 +9,7 @@
     "company": "DAVEMO Consulting"
   },
   "dependencies": {
-    "lineman"    : "~0.4.6",
+    "lineman"    : "~0.4.10",
     "handlebars" : "~1.0.8"
-  },
-  "engines": {
-    "node": "~>0.8.20",
-    "npm": "~>1.2.11"
   }
 }

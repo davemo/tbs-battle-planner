@@ -1,1 +1,1 @@
-def 'tbs.models.UnitStat', class UnitStat extends Backbone.Model
+def('tbs.models.UnitStat', class UnitStat extends Backbone.Model)
