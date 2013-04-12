@@ -15,3 +15,6 @@ def 'tbs.LoadoutController', ($scope, Units) ->
 
   $scope.updateName = (index) ->
     $scope.units[index].name = "dave"
+
+  $scope.statsOrEmpty = (unit, index, min) ->
+    unit.stats?[index]?[min] || "\u00A0" # &nbsp;

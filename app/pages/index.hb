@@ -17,23 +17,26 @@
     <div id="loadout" ng-controller="tbs.LoadoutController" ng-cloak>
       <div class="wrapper">
         <ul id="selected-characters">
-          <li ng-repeat="unit in units" class="character {[{ name }]}" ng-click="updateName($index)">
+          <li ng-repeat="unit in units" class="character {[{ unit.name }]}" ng-click="updateName($index)">
             <div class="title">{[{ unit.name }]}</div>
             <div class="portrait">
               <span class="help-text">Click a unit below</span>
             </div>
             <span class="remove" data-slot="{[{ $index }]}" toggle-if-unit-has-stats-when-parent-is-hovered>&times;</span>
             <ul class="stats-overlay">
-              <li class="armor">&nbsp;</li>
-              <li class="strength">&nbsp;</li>
-              <li class="willpower">&nbsp;</li>
-              <li class="exertion">&nbsp;</li>
-              <li class="break">&nbsp;</li>
+              {{! How can I still have the default values show up here like this... }}
+              {{! <li class="armor">&nbsp;</li> }}
+              {{! this seems clunky... }}
+              <li class="armor">{[{ statsOrEmpty(unit, 0, 0) }]}</li>
+              <li class="strength">{[{ statsOrEmpty(unit, 1, 0) }]}</li>
+              <li class="willpower">{[{ statsOrEmpty(unit, 2, 0) }]}</li>
+              <li class="exertion">{[{ statsOrEmpty(unit, 3, 0) }]}</li>
+              <li class="break">{[{ statsOrEmpty(unit, 4, 0) }]}</li>
             </ul>
             <span class="move-left" toggle-if-unit-has-stats-when-parent-is-hovered position="0"></span>
             <span class="move-right" toggle-if-unit-has-stats-when-parent-is-hovered position="5"></span>
             <div class="allocated-max-stats">
-              <span class="allocated">0</span>/<span class="max">11</span>
+              <span class="allocated">{[{ unit.allocated_stat_points }]}</span>/<span class="max">{[{ unit.max_stat_points }]}</span>
             </div>
           </li>
         </ul>

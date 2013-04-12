@@ -4,4 +4,4 @@ tbs.BattlePlannerNG.factory 'Units', ->
     type: ""
     stats: undefined
     allocated_stat_points: 0
-    max_stat_points: 0
+    max_stat_points: 11
