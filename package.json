@@ -1,8 +1,8 @@
 {
   "name": "tbs-factions-battle-planner",
   "title": "A battle planner for The Banner Saga : Factions",
-  "version": "0.2.43",
-  "tbs_version" : "1.6.43",
+  "version": "0.2.57",
+  "tbs_version" : "1.6.57",
   "private": true,
   "author": {
     "name": "David A. Mosher",
