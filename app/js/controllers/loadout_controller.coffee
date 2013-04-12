@@ -11,4 +11,7 @@ def 'tbs.LoadoutController', ($scope, Units) ->
   $scope.units = Units
 
   $scope.isChosen = (index) ->
-    Units[index].stats isnt undefined
+    $scope.units[index].stats isnt undefined
+
+  $scope.updateName = (index) ->
+    $scope.units[index].name = "dave"

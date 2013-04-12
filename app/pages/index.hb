@@ -14,11 +14,11 @@
       </div>
     </div>
 
-    <div id="loadout" ng-controller="tbs.LoadoutController">
+    <div id="loadout" ng-controller="tbs.LoadoutController" ng-cloak>
       <div class="wrapper">
         <ul id="selected-characters">
-          <li ng-repeat="unit in units" class="character {[{ name }]}" ng-model="units[$index]">
-            <div class="title">{[{ name }]}</div>
+          <li ng-repeat="unit in units" class="character {[{ name }]}" ng-click="updateName($index)">
+            <div class="title">{[{ unit.name }]}</div>
             <div class="portrait">
               <span class="help-text">Click a unit below</span>
             </div>
