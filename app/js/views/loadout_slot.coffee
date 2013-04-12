@@ -9,6 +9,14 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "click .move-left"  : "moveLeft"
     "click .move-right" : "moveRight"
 
+  showOverlay: =>
+    if @model.isChosen() then @$(".remove").show()
+    if @model.isChosen()
+      @$(".move-left, .move-right").show()
+
+      if @position() is 0 then @$(".move-left").hide()
+      if @position() is 5 then @$(".move-right").hide()
+
   removeFromLoadout: (e) ->
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
       @model.clear()
@@ -22,13 +30,6 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
     "class"     : "character #{@model.get('name')}"
     "data-slot" : @slot
 
-  showOverlay: =>
-    if @model.isChosen() then @$(".remove").show()
-    if @model.isChosen()
-      @$(".move-left, .move-right").show()
-
-      if @position() is 0 then @$(".move-left").hide()
-      if @position() is 5 then @$(".move-right").hide()
 
   moveLeft: (e) =>
     e.stopPropagation()
