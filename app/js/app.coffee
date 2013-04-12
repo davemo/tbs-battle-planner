@@ -1,6 +1,3 @@
-# angular stuff
-
-# global module
 def 'tbs.BattlePlannerNG',
   angular.module('tbs.BattlePlannerNG', []).config ($interpolateProvider) ->
     # configure template string other than handlebars
@@ -11,17 +8,17 @@ def 'tbs.BattlePlanner', class BattlePlanner
 
   constructor: ->
     @units          = new tbs.collections.Units(@defaultUnits())
-    @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
+    # @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
     @router         = new tbs.Router(loadout: @loadout_units)
 
     # stat editor
     @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
 
     # loadout
-    @loadout = new tbs.views.Loadout(
-      el: "#loadout"
-      collection: @loadout_units
-    ).render()
+    # @loadout = new tbs.views.Loadout(
+    #   el: "#loadout"
+    #   collection: @loadout_units
+    # ).render()
 
     #character_selector
     @character_selector = new tbs.views.CharacterSelector(
