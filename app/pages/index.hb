@@ -17,7 +17,7 @@
     <div id="loadout" ng-controller="tbs.LoadoutController">
       <div class="wrapper">
         <ul id="selected-characters">
-          <li ng-repeat="unit in defaultUnits" class="character {[{ name }]}">
+          <li ng-repeat="unit in units" class="character {[{ name }]}">
             <div class="title">{[{ name }]}</div>
             <div class="portrait">
               <span class="help-text">Click a unit below</span>
