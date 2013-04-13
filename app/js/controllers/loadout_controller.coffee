@@ -1,12 +1,3 @@
-tbs.BattlePlannerNG.directive "toggleIfUnitHasStatsWhenParentIsHovered", ->
-  (scope, element, attributes) ->
-    element.parent().bind "mouseenter", ->
-      if scope.isChosen(scope.$index) and scope.$index.toString() isnt attributes.position
-        element.css(display: "block")
-
-    element.parent().bind "mouseleave", ->
-      element.css(display: "none")
-
 def 'tbs.controllers.Loadout', ($scope, Units, AppStateService) ->
   $scope.units = Units
 

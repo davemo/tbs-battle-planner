@@ -1,7 +1,3 @@
-tbs.BattlePlannerNG.directive "disableRightClick", ->
-  (scope, element, attributes) ->
-    element.bind "contextmenu", -> false
-
 def 'tbs.controllers.StatEditor', ($scope, AppStateService) ->
 
   $scope.doneEditing = ->

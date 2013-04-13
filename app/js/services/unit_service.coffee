@@ -5,12 +5,6 @@ def 'tbs.core.defaultUnit', ->
   allocated_stat_points: 0
   max_stat_points: 11
 
-tbs.BattlePlannerNG.factory 'AppStateService', ($rootScope) ->
-  edit: (unit) ->
-    $rootScope.$broadcast('edit:unit', unit)
-  choose: ->
-    $rootScope.$broadcast('choose:unit')
-
 tbs.BattlePlannerNG.factory 'Units', ->
   _(_.range(0,6)).map(tbs.core.defaultUnit)
 
