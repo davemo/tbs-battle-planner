@@ -13,7 +13,8 @@ def 'tbs.controllers.Loadout', ($scope, $rootScope, Units, AppStateService) ->
   $scope.isChosen = (index) ->
     $scope.units[index].stats isnt undefined
 
-  $scope.moveUnit = (unit, from, to) ->
+  $scope.moveUnit = (unit, from, to, e) ->
+    e.stopPropagation()
     otherUnit = $scope.units[from+to]
     $scope.units[from+to] = unit
     $scope.units[from]    = otherUnit

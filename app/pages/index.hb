@@ -34,8 +34,8 @@
               <li class="exertion">{[{ statsOrEmpty(unit, "exertion") }]}</li>
               <li class="break">{[{ statsOrEmpty(unit, "break") }]}</li>
             </ul>
-            <span class="move-left" toggle-if-unit-has-stats-when-parent-is-hovered position="0" ng-click="moveUnit(unit, $index, -1)"></span>
-            <span class="move-right" toggle-if-unit-has-stats-when-parent-is-hovered position="5" ng-click="moveUnit(unit, $index, 1)"></span>
+            <span class="move-left" toggle-if-unit-has-stats-when-parent-is-hovered position="0" ng-click="moveUnit(unit, $index, -1, $event)"></span>
+            <span class="move-right" toggle-if-unit-has-stats-when-parent-is-hovered position="5" ng-click="moveUnit(unit, $index, 1, $event)"></span>
             <div class="allocated-max-stats">
               <span class="allocated">{[{ unit.allocated_stat_points }]}</span>/<span class="max">{[{ unit.max_stat_points }]}</span>
             </div>
