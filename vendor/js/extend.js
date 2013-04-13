@@ -1,5 +1,7 @@
 // https://github.com/searls/extend.js
 (function(_) {
+  "use strict";
+
   var makeExtender = function(top) {
     return function(name,value) {
       var ancestors = name.split('.'),

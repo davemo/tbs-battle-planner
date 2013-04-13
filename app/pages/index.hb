@@ -27,6 +27,7 @@
               {{! How can I still have the default values show up here like this... }}
               {{! <li class="armor">&nbsp;</li> }}
               {{! this seems clunky... }}
+              {{! might be a good opportunity for an element directive }}
               <li class="armor">{[{ statsOrEmpty(unit, "armor") }]}</li>
               <li class="strength">{[{ statsOrEmpty(unit, "strength") }]}</li>
               <li class="willpower">{[{ statsOrEmpty(unit, "willpower") }]}</li>
@@ -79,8 +80,9 @@
         <div class="portrait {[{ unit.name }]}"></div>
 
         <ul class="stats">
-          <li class="{[{ stat.name }]}" ng-repeat="stat in unit.stats" ng-click="log(stat)">
-            <span class="current">{[{ stat.current }]}</span>/<span class="max">{[{ stat.max }]}</span><span class="icon"></span>
+          <li class="{[{ stat.name }]}" ng-repeat="stat in unit.stats" ng-controller="tbs.controllers.StatController">
+            <span class="current">{[{ stat.current }]}</span>/<span class="max">{[{ stat.max }]}</span>
+            <span class="icon" disable-right-click ng-mousedown="increaseOrDecrease(unit, stat, $event)"></span>
           </li>
         </ul>
       </div>
