@@ -17,12 +17,12 @@
     <div id="loadout" ng-controller="tbs.controllers.Loadout" ng-cloak>
       <div class="wrapper">
         <ul id="selected-characters">
-          <li ng-repeat="unit in units" class="character {[{ unit.name }]}" ng-click="updateName($index)">
+          <li ng-repeat="unit in units" class="character {[{ unit.name }]}">
             <div class="title">{[{ unit.name }]}</div>
             <div class="portrait">
               <span class="help-text">Click a unit below</span>
             </div>
-            <span class="remove" data-slot="{[{ $index }]}" toggle-if-unit-has-stats-when-parent-is-hovered>&times;</span>
+            <span class="remove" data-slot="{[{ $index }]}" toggle-if-unit-has-stats-when-parent-is-hovered ng-click="clearUnit(unit)">&times;</span>
             <ul class="stats-overlay">
               {{! How can I still have the default values show up here like this... }}
               {{! <li class="armor">&nbsp;</li> }}
@@ -49,7 +49,7 @@
           <div class="unit-type" ng-repeat="(type, group) in unitGroupings">
             <div class="title">{[{ type }]}</div>
               <ul class="classes">
-                <li class="character {[{ unit.name }]}" ng-repeat="unit in group">
+                <li class="character {[{ unit.name }]}" ng-repeat="unit in group" ng-click="assignUnitToNextAvailableLoadoutSlot(unit)">
                   <div class="title">{[{ unit.name }]}</div>
                   <div class="portrait"></div>
                 </li>

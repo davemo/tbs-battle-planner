@@ -10,11 +10,8 @@ tbs.BattlePlannerNG.directive "toggleIfUnitHasStatsWhenParentIsHovered", ->
 def 'tbs.controllers.Loadout', ($scope, Units) ->
   $scope.units = Units
 
-  $scope.isChosen = (index) ->
-    $scope.units[index].stats isnt undefined
-
-  $scope.updateName = (index) ->
-    $scope.units[index].name = "dave"
-
   $scope.statsOrEmpty = (unit, index, min) ->
     unit.stats?[index]?[min] || "\u00A0" # &nbsp;
+
+  $scope.clearUnit = (unit) ->
+    _(unit).extend(tbs.core.defaultUnit())
