@@ -1,8 +1,15 @@
-def 'tbs.controllers.Loadout', ($scope, Units, AppStateService) ->
+def 'tbs.controllers.Loadout', ($scope, $location, Units, AppStateService) ->
+
   $scope.units = Units
 
+  $scope.$watch('units',((newUnits)->
+    $location.replace() #note: this is really bizzare, but here's the docs
+    # replace: If called, all changes to $location during current $digest will be replacing current history record, instead of adding new one.
+    $location.hash(tbs.data.UnitDataTranslator.serialize(newUnits))
+  ),true)
+
   $scope.isChosen = (index) ->
-    $scope.units[index].stats isnt undefined
+    !_.isEmpty($scope.units[index].stats)
 
   $scope.moveUnit = (unit, from, to, e) ->
     e.stopPropagation()
@@ -11,7 +18,7 @@ def 'tbs.controllers.Loadout', ($scope, Units, AppStateService) ->
     $scope.units[from]    = otherUnit
 
   $scope.statsOrEmpty = (unit, name) ->
-    if unit.stats
+    if !_.isEmpty(unit.stats)
       _(unit.stats).findWhere({name}).current
     else
       "\u00A0" # &nbsp;
@@ -23,3 +30,5 @@ def 'tbs.controllers.Loadout', ($scope, Units, AppStateService) ->
   $scope.edit = (unit) ->
     if unit.stats
       AppStateService.edit(unit)
+
+tbs.BattlePlannerNG.controller(tbs.controllers.Loadout)
