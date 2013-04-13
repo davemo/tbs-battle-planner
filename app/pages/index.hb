@@ -20,7 +20,7 @@
           <li ng-repeat="unit in units" class="character {[{ unit.name }]}">
             <div class="title">{[{ unit.name }]}</div>
             <div class="portrait">
-              <span class="help-text">Click a unit below</span>
+              <span class="help-text" ng-hide="isChosen($index)">Click a unit below</span>
             </div>
             <span class="remove" data-slot="{[{ $index }]}" toggle-if-unit-has-stats-when-parent-is-hovered ng-click="clearUnit(unit)">&times;</span>
             <ul class="stats-overlay">
