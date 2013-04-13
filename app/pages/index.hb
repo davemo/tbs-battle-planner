@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div id="loadout" ng-controller="tbs.LoadoutController" ng-cloak>
+    <div id="loadout" ng-controller="tbs.controllers.Loadout" ng-cloak>
       <div class="wrapper">
         <ul id="selected-characters">
           <li ng-repeat="unit in units" class="character {[{ unit.name }]}" ng-click="updateName($index)">
@@ -43,9 +43,19 @@
       </div>
     </div>
 
-    <div id="character-selector">
+    <div id="character-selector" ng-controller="tbs.controllers.CharacterSelector" ng-cloak>
       <div class="wrapper">
-        <div id="unit-groupings"></div>
+        <div id="unit-groupings" >
+          <div class="unit-type" ng-repeat="(type, group) in unitGroupings">
+            <div class="title">{[{ type }]}</div>
+              <ul class="classes">
+                <li class="character {[{ unit.name }]}" ng-repeat="unit in group">
+                  <div class="title">{[{ unit.name }]}</div>
+                  <div class="portrait"></div>
+                </li>
+              </ul>
+          </div>
+        </div>
       </div>
     </div>
 

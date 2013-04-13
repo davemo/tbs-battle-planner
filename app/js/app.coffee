@@ -21,10 +21,10 @@ def 'tbs.BattlePlanner', class BattlePlanner
     # ).render()
 
     #character_selector
-    @character_selector = new tbs.views.CharacterSelector(
-      el: "#character-selector"
-      collection: @unitTypesWithoutBase()
-    ).render()
+    # @character_selector = new tbs.views.CharacterSelector(
+    #   el: "#character-selector"
+    #   collection: @unitTypesWithoutBase()
+    # ).render()
 
   unitTypesWithoutBase: =>
     _(@units.groupBy("type")).tap (types) -> delete types.base
