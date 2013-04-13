@@ -12,7 +12,7 @@ def 'tbs.BattlePlanner', class BattlePlanner
     @router         = new tbs.Router(loadout: @loadout_units)
 
     # stat editor
-    @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
+    # @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
 
     # loadout
     # @loadout = new tbs.views.Loadout(

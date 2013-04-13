@@ -7,7 +7,7 @@ tbs.BattlePlannerNG.directive "toggleIfUnitHasStatsWhenParentIsHovered", ->
     element.parent().bind "mouseleave", ->
       element.hide()
 
-def 'tbs.controllers.Loadout', ($scope, Units) ->
+def 'tbs.controllers.Loadout', ($scope, $rootScope, Units, AppStateService) ->
   $scope.units = Units
 
   $scope.isChosen = (index) ->
@@ -18,11 +18,16 @@ def 'tbs.controllers.Loadout', ($scope, Units) ->
     $scope.units[from+to] = unit
     $scope.units[from]    = otherUnit
 
-  $scope.statsOrEmpty = (unit, statIndex, min) ->
+  $scope.statsOrEmpty = (unit, name) ->
     if unit.stats
-      unit.stats[statIndex][min]
+      _(unit.stats).findWhere({name}).current
     else
       "\u00A0" # &nbsp;
 
   $scope.clearUnit = (unit) ->
     _(unit).extend(tbs.core.defaultUnit())
+    AppStateService.choose()
+
+  $scope.edit = (unit) ->
+    if unit.stats
+      AppStateService.edit(unit)
