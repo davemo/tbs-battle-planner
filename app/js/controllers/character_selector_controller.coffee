@@ -8,7 +8,7 @@ def 'tbs.controllers.CharacterSelector', ($scope, UnitGroupings, Units) ->
     $scope.editing = false
 
   $scope.assignUnitToNextAvailableLoadoutSlot = (unit) ->
-    _(nextAvailableLoadoutSlot()).extend(unit)
+    _(nextAvailableLoadoutSlot()).extend(angular.copy(unit))
 
   # private
 
