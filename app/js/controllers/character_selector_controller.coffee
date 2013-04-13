@@ -13,4 +13,4 @@ def 'tbs.controllers.CharacterSelector', ($scope, UnitGroupings, Units) ->
   # private
 
   nextAvailableLoadoutSlot = ->
-    _(Units).findWhere(stats: undefined) || _(Units).last()
+    _(Units).find((u) -> _.isEmpty(u.stats)) || _(Units).last()

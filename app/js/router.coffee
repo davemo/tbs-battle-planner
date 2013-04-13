@@ -1,3 +1,9 @@
+def 'tbs.BattlePlannerNG.Router',
+  tbs.BattlePlannerNG.config ($routeProvider) ->
+    $routeProvider.when '/:encoded',
+      controller: tbs.controllers.Loadout
+
+
 # def 'tbs.Router', class Router extends Backbone.Router
 
 #   initialize: (options) =>

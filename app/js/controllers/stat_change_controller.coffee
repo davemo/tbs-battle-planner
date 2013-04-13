@@ -2,6 +2,7 @@ def 'tbs.controllers.StatChange', ($scope) ->
 
   $scope.increaseOrDecrease = (unit, stat, e) ->
     e.preventDefault()
+    e.stopPropagation()
     switch e.which
       when 1 then changeBy(unit, stat, 1)  #left click
       when 3 then changeBy(unit, stat, -1) #right click
