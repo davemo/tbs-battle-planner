@@ -77,7 +77,7 @@
         <ul class="stats">
           <li class="{{ stat.name }}" ng-repeat="stat in unit.stats" ng-controller="tbs.controllers.StatChange">
             <span class="current">{{ stat.current }}</span>/<span class="max">{{ stat.max }}</span>
-            <span class="icon" disable-right-click ng-mousedown="increaseOrDecrease(unit, stat, $event)"></span>
+            <span class="icon" disable-context-menu ng-mousedown="increaseOrDecrease(unit, stat, $event)"></span>
           </li>
         </ul>
       </div>
