@@ -13,6 +13,11 @@ def 'tbs.controllers.Loadout', ($scope, Units) ->
   $scope.isChosen = (index) ->
     $scope.units[index].stats isnt undefined
 
+  $scope.moveUnit = (unit, from, to) ->
+    otherUnit = $scope.units[from+to]
+    $scope.units[from+to] = unit
+    $scope.units[from]    = otherUnit
+
   $scope.statsOrEmpty = (unit, statIndex, min) ->
     if unit.stats
       unit.stats[statIndex][min]
