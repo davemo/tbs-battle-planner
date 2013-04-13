@@ -77,7 +77,12 @@
         </div>
 
         <div class="portrait {[{ unit.name }]}"></div>
-        <ul class="stats"></ul>
+
+        <ul class="stats">
+          <li class="{[{ stat.name }]}" ng-repeat="stat in unit.stats" ng-click="log(stat)">
+            <span class="current">{[{ stat.current }]}</span>/<span class="max">{[{ stat.max }]}</span><span class="icon"></span>
+          </li>
+        </ul>
       </div>
     </div>
 

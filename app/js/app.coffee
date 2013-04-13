@@ -1,8 +1,17 @@
 def 'tbs.BattlePlannerNG',
-  angular.module('tbs.BattlePlannerNG', []).config ($interpolateProvider) ->
+  _(angular.module('tbs.BattlePlannerNG', [])).tap (app) ->
     # configure template string other than handlebars
-    $interpolateProvider.startSymbol('{[{')
-    $interpolateProvider.endSymbol('}]}')
+    app.config ($interpolateProvider) ->
+      $interpolateProvider.startSymbol('{[{')
+      $interpolateProvider.endSymbol('}]}')
+
+    # useful logging tools for all scopes
+    app.run ($rootScope) ->
+      $rootScope.log = (things...) ->
+        console.log(things)
+
+      $rootScope.alert = (something) ->
+        alert(something)
 
 def 'tbs.BattlePlanner', class BattlePlanner
 
