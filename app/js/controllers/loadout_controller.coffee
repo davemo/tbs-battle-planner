@@ -7,7 +7,7 @@ tbs.BattlePlannerNG.directive "toggleIfUnitHasStatsWhenParentIsHovered", ->
     element.parent().bind "mouseleave", ->
       element.hide()
 
-def 'tbs.controllers.Loadout', ($scope, $rootScope, Units, AppStateService) ->
+def 'tbs.controllers.Loadout', ($scope, Units, AppStateService) ->
   $scope.units = Units
 
   $scope.isChosen = (index) ->

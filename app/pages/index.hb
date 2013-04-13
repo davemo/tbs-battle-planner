@@ -80,7 +80,7 @@
         <div class="portrait {[{ unit.name }]}"></div>
 
         <ul class="stats">
-          <li class="{[{ stat.name }]}" ng-repeat="stat in unit.stats" ng-controller="tbs.controllers.StatController">
+          <li class="{[{ stat.name }]}" ng-repeat="stat in unit.stats" ng-controller="tbs.controllers.StatChange">
             <span class="current">{[{ stat.current }]}</span>/<span class="max">{[{ stat.max }]}</span>
             <span class="icon" disable-right-click ng-mousedown="increaseOrDecrease(unit, stat, $event)"></span>
           </li>
