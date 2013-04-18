@@ -77,24 +77,24 @@ def 'tbs.data.Units', ->
       name: "shieldbanger"
       type: "base"
       rank: 0
-      stats: tbs.converters.buildStatsCollection([[9,14], [8,10], [2,4], [1,1], [1,2]])
+      stats: tbs.converters.buildStatsCollection([[9,14], [8,10], [3,5], [1,1], [1,2]])
     }
     {
       name: "provoker"
       type: "shieldbanger"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[11,18], [7,12], [2,8], [0,2], [1,3]])
+      stats: tbs.converters.buildStatsCollection([[11,18], [7,12], [3,9], [0,2], [1,3]])
     }
     {
       name: "strongarm"
       type: "shieldbanger"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[9,15], [9,15], [2,9], [0,2], [1,2]])
+      stats: tbs.converters.buildStatsCollection([[9,15], [9,15], [3,10], [0,2], [1,2]])
     }
     {
       name: "shieldmaster"
       type: "shieldbanger"
       rank: 1
-      stats: tbs.converters.buildStatsCollection([[9,16], [8,13], [2,8], [1,2], [1,4]])
+      stats: tbs.converters.buildStatsCollection([[9,16], [8,13], [3,9], [1,2], [1,4]])
     }
   ]
