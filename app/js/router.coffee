@@ -1,4 +1,4 @@
-def 'tbs.BattlePlannerNG.Router',
-  tbs.BattlePlannerNG.config ($routeProvider) ->
-    $routeProvider.when '/:encoded',
-      controller: tbs.controllers.Loadout
+angular.module('tbs.BattlePlannerNG').config(['$routeProvider', ($routeProvider) ->
+  $routeProvider.when '/:encoded',
+    controller: "LoadoutController"
+])

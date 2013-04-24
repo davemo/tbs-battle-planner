@@ -1,11 +1,14 @@
-def 'tbs.controllers.StatEditor', ($scope, AppStateService) ->
+angular.module('tbs.BattlePlannerNG').controller 'StatEditor', ['$scope', 'AppStateService',
 
-  $scope.doneEditing = ->
-    AppStateService.choose()
+  ($scope, AppStateService) ->
 
-  $scope.$on 'edit:unit', (event, unit) ->
-    $scope.unit = unit
-    $scope.editing = true
+    $scope.doneEditing = ->
+      AppStateService.choose()
 
-  $scope.$on 'choose:unit', ->
-    $scope.editing = false
+    $scope.$on 'edit:unit', (event, unit) ->
+      $scope.unit = unit
+      $scope.editing = true
+
+    $scope.$on 'choose:unit', ->
+      $scope.editing = false
+]

@@ -1,5 +1,5 @@
-tbs.BattlePlannerNG.factory 'AppStateService', ($rootScope) ->
+angular.module('tbs.BattlePlannerNG').factory 'AppStateService', ['$rootScope', ($rootScope) ->
   edit: (unit) ->
     $rootScope.$broadcast('edit:unit', unit)
   choose: ->
-    $rootScope.$broadcast('choose:unit')
+    $rootScope.$broadcast('choose:unit')]

@@ -1,4 +1,4 @@
-tbs.BattlePlannerNG.directive "showIfUnitHasStatsWhenParentIsHovered", ->
+angular.module('tbs.BattlePlannerNG').directive "showIfUnitHasStatsWhenParentIsHovered", ->
   (scope, element, attributes) ->
     element.parent().bind "mouseenter", ->
       if scope.isChosen(scope.$index) and scope.$index.toString() isnt attributes.position

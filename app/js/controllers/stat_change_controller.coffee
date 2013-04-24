@@ -1,4 +1,4 @@
-def 'tbs.controllers.StatChange', ($scope) ->
+angular.module('tbs.BattlePlannerNG').controller 'StatChange', ['$scope', ($scope) ->
 
   $scope.increaseOrDecrease = (unit, stat, e) ->
     e.preventDefault()
@@ -14,3 +14,5 @@ def 'tbs.controllers.StatChange', ($scope) ->
       if !(stat.current + amount < stat.min or stat.current + amount > stat.max)
         stat.current += amount
         unit.allocated_stat_points += amount
+]
+

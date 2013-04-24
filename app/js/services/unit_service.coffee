@@ -5,14 +5,16 @@ def 'tbs.core.defaultUnit', ->
   allocated_stat_points: 0
   max_stat_points: 11
 
-tbs.BattlePlannerNG.factory 'Units', ($location) ->
+angular.module('tbs.BattlePlannerNG').factory 'Units', ['$location', ($location) ->
+
   if hash = $location.hash()
     units = tbs.data.UnitDataTranslator.deserialize(hash)
   else
     units = _(_.range(0,6)).map(tbs.core.defaultUnit)
   units
+]
 
-tbs.BattlePlannerNG.factory 'UnitGroupings', ->
+angular.module('tbs.BattlePlannerNG').factory 'UnitGroupings', ->
 
   maxStatPointsForRank = (rank) ->
     switch rank
