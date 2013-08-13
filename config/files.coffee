@@ -7,12 +7,10 @@
 #
 # You can find the parent object in: node_modules/lineman/config/files.js
 #
-module.exports = require("lineman").config.extend("files",
+module.exports = require(process.env['LINEMAN_MAIN']).config.extend("files",
 
   #Override file patterns here
   js:
-    spec: "spec/js/**/*.js"
-    specHelpers: "spec/js/helpers/**/*.js"
     vendor: [
       "vendor/js/underscore.js",
       "vendor/js/jquery.js",
@@ -28,6 +26,9 @@ module.exports = require("lineman").config.extend("files",
       "app/js/models/**/*.coffee",
       "app/js/**/*.coffee"
     ]
-    spec: "spec/js/**/*.coffee"
-    specHelpers: "spec/js/helpers/**/*.coffee"
+
+  less:
+    compile:
+      options:
+        paths: ["vendor/css/**/*.css", "app/css/mixins.less", "app/css/**/*.less"]
 )

@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>{{ pkg.name }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ css }}?v={{ pkg.version }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/app.css?v={{ pkg.version }}" media="all" />
     <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
-    <script src="{{ js }}?v={{ pkg.version }}"></script>
+    <script src="js/app.js?v={{ pkg.version }}"></script>
   </head>
   <body>
 
