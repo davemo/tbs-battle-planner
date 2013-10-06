@@ -1,4 +1,4 @@
-@import "mixins";
+@import "mixins.less";
 
 .black-text-outline () {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -65,7 +65,7 @@ body {
 
 .stats-overlay {
   padding: 3px;
-  .border-radius(6px);
+  border-radius: 6px;
   overflow: hidden;
   background: black;
   margin: 0 auto;
@@ -146,7 +146,7 @@ body {
       display: none;
       width: 25px;
       height: 25px;
-      .border-radius(13px);
+      border-radius: 13px;
       #gradient > .radial(#b62f12, #8f250d);
       .box-shadow(0px 10px 20px 0px rgba(0,0,0,0.75));
       border: 2px solid #7c8990;
@@ -371,7 +371,7 @@ body {
 
 // Mixins
 .base-character-portrait (@class) {
-  (~".character.@{class}") {
+  .character.@{class} {
     .portrait {
       background-image: url("../img/characters/base/@{class}.png");
     }
@@ -379,7 +379,7 @@ body {
 }
 
 .rank-1-character-portrait (@class) {
-  (~".character.@{class}") {
+  .character.@{class} {
     .portrait {
       background-image: url("../img/characters/rank1/@{class}.png");
     }
@@ -388,13 +388,13 @@ body {
 
 // Large Portraits for Stat Editor
 .rank-1-stat-editor-portrait (@class) {
-  (~"#stat-editor .portrait.@{class}") {
+  #stat-editor .portrait.@{class} {
     background-image: url("../img/characters/portraits/@{class}.png");
   }
 }
 
 .stat-icon (@stat) {
-  (~"#stat-editor .@{stat} .icon") {
+  #stat-editor .@{stat} .icon {
     background-image: url("../img/icon/@{stat}.png");
   }
 }
@@ -415,60 +415,60 @@ body {
 
 // Icons
 
-.stat-icon("armor");
-.stat-icon("strength");
-.stat-icon("willpower");
-.stat-icon("exertion");
-.stat-icon("break");
-.stat-icon("special");
+.stat-icon(armor);
+.stat-icon(strength);
+.stat-icon(willpower);
+.stat-icon(exertion);
+.stat-icon(break);
+.stat-icon(special);
 
 // Base Character Portraits
 
-.base-character-portrait("raider");
-.base-character-portrait("archer");
-.base-character-portrait("warrior");
-.base-character-portrait("shieldbanger");
+.base-character-portrait(raider);
+.base-character-portrait(archer);
+.base-character-portrait(warrior);
+.base-character-portrait(shieldbanger);
 
 // Rank 1 Stat Editor Large Portraits
 
 // Warriors
-.rank-1-stat-editor-portrait("warhawk");
-.rank-1-stat-editor-portrait("warleader");
-.rank-1-stat-editor-portrait("warmaster");
+.rank-1-stat-editor-portrait(warhawk);
+.rank-1-stat-editor-portrait(warleader);
+.rank-1-stat-editor-portrait(warmaster);
 
 // Archers
-.rank-1-stat-editor-portrait("bowmaster");
-.rank-1-stat-editor-portrait("skystriker");
-.rank-1-stat-editor-portrait("siegearcher");
+.rank-1-stat-editor-portrait(bowmaster);
+.rank-1-stat-editor-portrait(skystriker);
+.rank-1-stat-editor-portrait(siegearcher);
 
 // Raiders
-.rank-1-stat-editor-portrait("raidmaster");
-.rank-1-stat-editor-portrait("thrasher");
-.rank-1-stat-editor-portrait("backbiter");
+.rank-1-stat-editor-portrait(raidmaster);
+.rank-1-stat-editor-portrait(thrasher);
+.rank-1-stat-editor-portrait(backbiter);
 
 // Shieldbangers
-.rank-1-stat-editor-portrait("strongarm");
-.rank-1-stat-editor-portrait("provoker");
-.rank-1-stat-editor-portrait("shieldmaster");
+.rank-1-stat-editor-portrait(strongarm);
+.rank-1-stat-editor-portrait(provoker);
+.rank-1-stat-editor-portrait(shieldmaster);
 
 // Rank 1 Character Portraits
 
 // Warriors
-.rank-1-character-portrait("warhawk");
-.rank-1-character-portrait("warleader");
-.rank-1-character-portrait("warmaster");
+.rank-1-character-portrait(warhawk);
+.rank-1-character-portrait(warleader);
+.rank-1-character-portrait(warmaster);
 
 // Archers
-.rank-1-character-portrait("bowmaster");
-.rank-1-character-portrait("skystriker");
-.rank-1-character-portrait("siegearcher");
+.rank-1-character-portrait(bowmaster);
+.rank-1-character-portrait(skystriker);
+.rank-1-character-portrait(siegearcher);
 
 // Raiders
-.rank-1-character-portrait("raidmaster");
-.rank-1-character-portrait("thrasher");
-.rank-1-character-portrait("backbiter");
+.rank-1-character-portrait(raidmaster);
+.rank-1-character-portrait(thrasher);
+.rank-1-character-portrait(backbiter);
 
 // Shieldbangers
-.rank-1-character-portrait("strongarm");
-.rank-1-character-portrait("provoker");
-.rank-1-character-portrait("shieldmaster");
+.rank-1-character-portrait(strongarm);
+.rank-1-character-portrait(provoker);
+.rank-1-character-portrait(shieldmaster);
