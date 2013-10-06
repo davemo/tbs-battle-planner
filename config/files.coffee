@@ -30,5 +30,5 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend("files",
   less:
     compile:
       options:
-        paths: ["vendor/css/**/*.css", "app/css/mixins.less", "app/css/**/*.less"]
+        paths: ["vendor/css/**/*.css", "app/css/**/*.less"]
 )

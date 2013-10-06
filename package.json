@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "handlebars": "~1.0.12",
-    "lineman": "~0.11.6"
+    "lineman": "~0.14.5"
   }
 }
