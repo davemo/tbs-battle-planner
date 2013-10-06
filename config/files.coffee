@@ -7,7 +7,7 @@
 #
 # You can find the parent object in: node_modules/lineman/config/files.js
 #
-module.exports = require(process.env['LINEMAN_MAIN']).config.extend("files",
+module.exports = require(process.env['LINEMAN_MAIN']).config.extend "files",
 
   #Override file patterns here
   js:
@@ -32,4 +32,3 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend("files",
     compile:
       options:
         paths: ["vendor/css/**/*.css", "app/css/**/*.less"]
-)
