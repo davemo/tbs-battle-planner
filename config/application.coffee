@@ -22,9 +22,17 @@ module.exports = require("lineman").config.extend "application",
       src: "<%= files.ngtemplates.src %>",
       dest: "<%= files.ngtemplates.dest %>"
 
+  less:
+    options:
+      ieCompat: false
+
   concat:
     js:
-      src: ["<%= files.js.vendor %>", "<%= files.coffee.generated %>", "<%= files.ngtemplates.dest %>"],
+      src: [
+        "<%= files.js.vendor %>"
+        "<%= files.coffee.generated %>"
+        "<%= files.ngtemplates.dest %>"
+      ]
       dest: "<%= files.js.concatenated %>"
 
   watch:
