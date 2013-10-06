@@ -7,6 +7,6 @@ Backbone.Fixins.configure
 
 subPathFor = (view) ->
   _(view.namespacePath.split('.')).chain().
-    rest(2). #skip "cep" and "views"
+    rest(2). #skip "app" and "views"
     map(Backbone.Fixins.helpers.titleToSnakeCase).
     value().join('/')
