@@ -9,6 +9,7 @@
     "company": "DAVEMO Consulting"
   },
   "dependencies": {
-    "lineman": "~0.14.5"
+    "lineman": "~0.14.5",
+    "grunt-angular-templates": "~0.4.2"
   }
 }

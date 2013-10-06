@@ -28,6 +28,10 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend "files",
       "app/js/**/*.coffee"
     ]
 
+  ngtemplates:
+    src: "app/templates/**/*.html"
+    dest: "generated/angular/template-cache.js"
+
   less:
     compile:
       options:
