@@ -7,6 +7,7 @@ module.exports = require("lineman").config.extend "application",
 
   loadNpmTasks: [
     "grunt-angular-templates"
+    "grunt-contrib-imagemin"
   ]
 
   removeTasks:
@@ -14,6 +15,7 @@ module.exports = require("lineman").config.extend "application",
 
   prependTasks:
     common: ["ngtemplates"]
+    dist: ["imagemin"]
 
   ngtemplates:
     "tbs.BattlePlannerNG":
@@ -25,6 +27,14 @@ module.exports = require("lineman").config.extend "application",
   less:
     options:
       ieCompat: false
+
+  imagemin:
+    all_images:
+      files: [
+        expand: true
+        src: ["app/img/**/*.png"]
+        dest: "."
+      ]
 
   concat:
     js:
