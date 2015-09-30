@@ -8,11 +8,14 @@
     "name": "David A. Mosher",
     "company": "DAVEMO Consulting"
   },
-  "dependencies": {
+  "devDependencies": {
+    "lineman": "^0.36.6",
+    "lineman-less": "^0.1.0",
     "handlebars": "~1.0.12"
   },
-  "devDependencies": {
-    "lineman": "^0.36.3",
-    "lineman-less": "^0.1.0"
+  "scripts": {
+    "start": "lineman run",
+    "postinstall": "lineman build",
+    "test": "lineman spec"
   }
 }
