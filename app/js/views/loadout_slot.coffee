@@ -56,8 +56,8 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
 
   initialize: (options) ->
     @slot = options.slot
-    @model.on("change", @render)
-    @model.on("change:rank", @updateMaxStatPoints)
+    @model.on("change", @render, @)
+    @model.on("change:rank", @updateMaxStatPoints, @)
 
   renderAttributes: =>
     attrs = @attributes()

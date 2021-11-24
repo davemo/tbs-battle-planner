@@ -1,8 +1,8 @@
 def 'tbs.Router', class Router extends Backbone.Router
 
-  initialize: (options) =>
+  initialize: (options) ->
     @loadout = options.loadout
-    @loadout.on("change", @storeHash)
+    @loadout.on("change", @storeHash, @)
 
   routes:
     ":encoded" : "loadLoadout"
@@ -11,5 +11,5 @@ def 'tbs.Router', class Router extends Backbone.Router
     @loadout.reset(@loadout.deserialize(encoded))
     Backbone.trigger("loaded:from:hash")
 
-  storeHash: =>
+  storeHash: ->
     @navigate(@loadout.serialize(), {replace: true})

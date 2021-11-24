@@ -1,8 +1,8 @@
 def 'tbs.views.CharacterSelector', class CharacterSelector extends Backbone.View
 
   initialize: =>
-    Backbone.on("edit:unit", @hide)
-    Backbone.on("choose:unit", @show)
+    Backbone.on("edit:unit", @hide, @)
+    Backbone.on("choose:unit", @show, @)
 
   render: =>
     _(@collection).each (units, type) =>

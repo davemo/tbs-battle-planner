@@ -6,9 +6,9 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     "click .change-rank" : "setRank"
 
   initialize: =>
-    Backbone.on("edit:unit", @show)
-    Backbone.on("choose:unit", @hide)
-    Backbone.on("loadout:reorganized", @show)
+    Backbone.on("edit:unit", @show, @)
+    Backbone.on("choose:unit", @hide, @)
+    Backbone.on("loadout:reorganized", @show, @)
 
   renderVisible: =>
     if @model.isChosen() then @$el.show() else @$el.hide()
@@ -49,9 +49,9 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
     @model = unit
     # had to clone stats here, as editing the same class was buggy
     @model.set("stats", new tbs.collections.UnitStats(@model.get('stats').toJSON()))
-    @model.on("change:allocated_stat_points", @renderTotals)
-    @model.on("change:rank", @renderRankChanger)
-    @model.on("change:rank", @renderRankInEditorTitle)
-    @model.on("change:rank", @renderTotals)
+    @model.on("change:allocated_stat_points", @renderTotals, @)
+    @model.on("change:rank", @renderRankChanger, @)
+    @model.on("change:rank", @renderRankInEditorTitle, @)
+    @model.on("change:rank", @renderTotals, @)
     @render()
     @$el.show()

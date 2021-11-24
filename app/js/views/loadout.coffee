@@ -4,7 +4,7 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
     "click .character" : "editUnit"
 
   initialize: =>
-    Backbone.on("loaded:from:hash", @render)
+    Backbone.on("loaded:from:hash", @render, @)
 
   editUnit: (e) =>
     unit = @fetchUnitFromCollectionViaSlotDataAttribute(e)

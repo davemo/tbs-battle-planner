@@ -8,7 +8,7 @@ def 'tbs.views.StatControl', class StatControl extends Backbone.Fixins.SuperView
 
   initialize: (options) ->
     @unit = options.unit
-    @model.on("change:current", @update)
+    @model.on("change:current", @update, @)
 
   attributes: =>
     class: @model.get("stat")
