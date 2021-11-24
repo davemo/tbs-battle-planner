@@ -3,7 +3,7 @@
   <head>
     <title>{{ pkg.name }}</title>
     <link rel="stylesheet" type="text/css" href="css/app.css?v={{ pkg.version }}" media="all" />
-    <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
     <script src="js/app.js?v={{ pkg.version }}"></script>
   </head>
   <body>
