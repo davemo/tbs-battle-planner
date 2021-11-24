@@ -3,6 +3,4 @@
 #
 # You can find the parent object in: node_modules/lineman/config/application.js
 #
-module.exports = require(process.env['LINEMAN_MAIN']).config.extend("application",
-
-)
+module.exports = (lineman) ->
